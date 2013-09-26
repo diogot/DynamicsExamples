@@ -33,16 +33,22 @@
     NSNumber *relativeMin = @-50;
     NSNumber *relativeMax = @50;
 
-    UIInterpolatingMotionEffect *interpolationHorizontal = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"center.x" type:UIInterpolatingMotionEffectTypeTiltAlongHorizontalAxis];
-    interpolationHorizontal.minimumRelativeValue = relativeMin;
-    interpolationHorizontal.maximumRelativeValue = relativeMax;
+    UIInterpolatingMotionEffectType horizontal = UIInterpolatingMotionEffectTypeTiltAlongHorizontalAxis;
+    UIInterpolatingMotionEffect *horizontalAxix;
+    horizontalAxix = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"center.x"
+                                                                     type:horizontal];
+    horizontalAxix.minimumRelativeValue = relativeMin;
+    horizontalAxix.maximumRelativeValue = relativeMax;
 
-    UIInterpolatingMotionEffect *interpolationVertical = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"center.y" type:UIInterpolatingMotionEffectTypeTiltAlongVerticalAxis];
-    interpolationVertical.minimumRelativeValue = relativeMin;
-    interpolationVertical.maximumRelativeValue = relativeMax;
+    UIInterpolatingMotionEffectType vertical = UIInterpolatingMotionEffectTypeTiltAlongVerticalAxis;
+    UIInterpolatingMotionEffect *verticalAxix;
+    verticalAxix = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"center.y"
+                                                                   type:vertical];
+    verticalAxix.minimumRelativeValue = relativeMin;
+    verticalAxix.maximumRelativeValue = relativeMax;
 
     UIMotionEffectGroup *parallax = [[UIMotionEffectGroup alloc] init];
-    parallax.motionEffects = @[interpolationHorizontal, interpolationVertical];
+    parallax.motionEffects = @[horizontalAxix, verticalAxix];
 
     [self.image addMotionEffect:parallax];
 }

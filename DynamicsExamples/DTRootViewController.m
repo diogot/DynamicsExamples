@@ -13,12 +13,14 @@
 
 
 NS_ENUM(NSInteger, DTDynamicsType) {
-    DTDynamicsTypeParallax = 0,
-    DTDynamicsTypeScrollView,
+    DTDynamicsTypeWrongPassword = 0,
+    DTDynamicsTypeCollectionView,
     DTDynamicsTypeLockScreen,
-    DTDynamicsTypeWrongPassword,
+    DTDynamicsTypeParallax,
     DTDynamicsTypes
 };
+
+static NSString * const CellIdentifier = @"Cell";
 
 @interface DTRootViewController ()
 
@@ -26,20 +28,14 @@ NS_ENUM(NSInteger, DTDynamicsType) {
 
 @implementation DTRootViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
     self.title = NSLocalizedString(@"Dynamics example", @"Dynamics example");
+
+    [self.tableView registerClass:[UITableViewCell class]
+           forCellReuseIdentifier:CellIdentifier];
 }
 
 #pragma mark - Table view data source
@@ -49,20 +45,16 @@ NS_ENUM(NSInteger, DTDynamicsType) {
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (NSInteger)tableView:(UITableView *)tableView
+ numberOfRowsInSection:(NSInteger)section
 {
     return DTDynamicsTypes;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
 
     NSString *name;
 
@@ -85,7 +77,6 @@ NS_ENUM(NSInteger, DTDynamicsType) {
     }
 
     cell.textLabel.text = name;
-
 
     return cell;
 }

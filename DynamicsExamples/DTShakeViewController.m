@@ -34,21 +34,24 @@
 
     self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view];
 
-    UIAttachmentBehavior *constraint = [[UIAttachmentBehavior alloc] initWithItem:shakingView
-                                                                 attachedToAnchor:self.view.center];
+    UIAttachmentBehavior *constraint;
+    constraint = [[UIAttachmentBehavior alloc] initWithItem:shakingView
+                                           attachedToAnchor:self.view.center];
     constraint.damping = 0.1;
     constraint.frequency = 5;
 
     self.constraint = constraint;
 
-    UIPushBehavior *push = [[UIPushBehavior alloc] initWithItems:@[shakingView]
-                                                            mode:UIPushBehaviorModeInstantaneous];
+    UIPushBehavior *push;
+    push = [[UIPushBehavior alloc] initWithItems:@[shakingView]
+                                            mode:UIPushBehaviorModeInstantaneous];
     [push setAngle:0 magnitude:-8];
 
     self.push = push;
 
-    UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self
-                                                                              action:@selector(shake)];
+    UITapGestureRecognizer *gesture;
+    gesture = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                      action:@selector(shake)];
     [shakingView addGestureRecognizer:gesture];
 }
 
