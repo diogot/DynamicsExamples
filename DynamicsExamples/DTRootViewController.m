@@ -9,6 +9,8 @@
 #import "DTRootViewController.h"
 #import "DTParallaxViewController.h"
 #import "DTShakeViewController.h"
+#import "DTCollectionViewController.h"
+
 
 NS_ENUM(NSInteger, DTDynamicsType) {
     DTDynamicsTypeParallax = 0,
@@ -68,8 +70,8 @@ NS_ENUM(NSInteger, DTDynamicsType) {
         case DTDynamicsTypeParallax:
             name = NSLocalizedString(@"Parallax", @"Parallax");
             break;
-        case DTDynamicsTypeScrollView:
-            name = NSLocalizedString(@"ScrollView", @"ScrollView");
+        case DTDynamicsTypeCollectionView:
+            name = NSLocalizedString(@"CollectionView", @"CollectionView");
             break;
         case DTDynamicsTypeLockScreen:
             name = NSLocalizedString(@"LockScreen", @"LockScreen");
@@ -96,8 +98,8 @@ NS_ENUM(NSInteger, DTDynamicsType) {
         case DTDynamicsTypeParallax:
             [self pushParallaxController];
             break;
-        case DTDynamicsTypeScrollView:
-            NSLog(@"scrollview");
+        case DTDynamicsTypeCollectionView:
+            [self pushCollectionController];
             break;
         case DTDynamicsTypeLockScreen:
             NSLog(@"lock");
@@ -120,6 +122,12 @@ NS_ENUM(NSInteger, DTDynamicsType) {
 - (void)pushShakeController
 {
     DTShakeViewController *controller = [[DTShakeViewController alloc] init];
+    [self.navigationController pushViewController:controller animated:YES];
+}
+
+- (void)pushCollectionController
+{
+    DTCollectionViewController *controller = [[DTCollectionViewController alloc] init];
     [self.navigationController pushViewController:controller animated:YES];
 }
 

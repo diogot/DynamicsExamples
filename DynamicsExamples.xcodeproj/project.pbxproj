@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D960E75817F38FF700AB192D /* DTSpringFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D960E75717F38FF700AB192D /* DTSpringFlowLayout.m */; };
 		D9F97B8517F27D34009E900E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9F97B8417F27D34009E900E /* Foundation.framework */; };
 		D9F97B8717F27D34009E900E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9F97B8617F27D34009E900E /* CoreGraphics.framework */; };
 		D9F97B8917F27D34009E900E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9F97B8817F27D34009E900E /* UIKit.framework */; };
@@ -23,6 +24,7 @@
 		D9F97BB817F27E9B009E900E /* DTParallaxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9F97BB717F27E9B009E900E /* DTParallaxViewController.m */; };
 		D9F97BBB17F28743009E900E /* img.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D9F97BBA17F28743009E900E /* img.jpg */; };
 		D9F97BC117F2A60F009E900E /* DTShakeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9F97BC017F2A60F009E900E /* DTShakeViewController.m */; };
+		D9F97BC517F3B30B009E900E /* DTCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9F97BC417F3B30B009E900E /* DTCollectionViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D960E75617F38FF700AB192D /* DTSpringFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTSpringFlowLayout.h; sourceTree = "<group>"; };
+		D960E75717F38FF700AB192D /* DTSpringFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTSpringFlowLayout.m; sourceTree = "<group>"; };
 		D9F97B8117F27D34009E900E /* DynamicsExamples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DynamicsExamples.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9F97B8417F27D34009E900E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D9F97B8617F27D34009E900E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -59,6 +63,8 @@
 		D9F97BBA17F28743009E900E /* img.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img.jpg; sourceTree = "<group>"; };
 		D9F97BBF17F2A60F009E900E /* DTShakeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTShakeViewController.h; sourceTree = "<group>"; };
 		D9F97BC017F2A60F009E900E /* DTShakeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTShakeViewController.m; sourceTree = "<group>"; };
+		D9F97BC317F3B30B009E900E /* DTCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTCollectionViewController.h; sourceTree = "<group>"; };
+		D9F97BC417F3B30B009E900E /* DTCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTCollectionViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +91,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D960E75217F37CB900AB192D /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				D9F97BC317F3B30B009E900E /* DTCollectionViewController.h */,
+				D9F97BC417F3B30B009E900E /* DTCollectionViewController.m */,
+				D960E75617F38FF700AB192D /* DTSpringFlowLayout.h */,
+				D960E75717F38FF700AB192D /* DTSpringFlowLayout.m */,
+			);
+			name = CollectionView;
+			sourceTree = "<group>";
+		};
 		D9F97B7817F27D34009E900E = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +141,7 @@
 				D9F97BB417F27D9A009E900E /* DTRootViewController.m */,
 				D9F97BB917F284D9009E900E /* Parallax */,
 				D9F97BC217F2A62C009E900E /* Shake */,
+				D960E75217F37CB900AB192D /* CollectionView */,
 				D9F97B9617F27D34009E900E /* Images.xcassets */,
 				D9F97B8B17F27D34009E900E /* Supporting Files */,
 			);
@@ -278,6 +296,8 @@
 				D9F97B9517F27D34009E900E /* DTAppDelegate.m in Sources */,
 				D9F97BB817F27E9B009E900E /* DTParallaxViewController.m in Sources */,
 				D9F97BB517F27D9A009E900E /* DTRootViewController.m in Sources */,
+				D9F97BC517F3B30B009E900E /* DTCollectionViewController.m in Sources */,
+				D960E75817F38FF700AB192D /* DTSpringFlowLayout.m in Sources */,
 				D9F97BC117F2A60F009E900E /* DTShakeViewController.m in Sources */,
 				D9F97B9117F27D34009E900E /* main.m in Sources */,
 			);
@@ -480,6 +500,7 @@
 				D9F97BAF17F27D34009E900E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D9F97BB017F27D34009E900E /* Build configuration list for PBXNativeTarget "DynamicsExamplesTests" */ = {
 			isa = XCConfigurationList;
@@ -488,6 +509,7 @@
 				D9F97BB217F27D34009E900E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
