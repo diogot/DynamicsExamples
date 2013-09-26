@@ -10,12 +10,12 @@
 #import "DTParallaxViewController.h"
 #import "DTShakeViewController.h"
 #import "DTCollectionViewController.h"
-
+#import "DTScrollViewController.h"
 
 NS_ENUM(NSInteger, DTDynamicsType) {
     DTDynamicsTypeWrongPassword = 0,
+    DTDynamicsTypeScrollView,
     DTDynamicsTypeCollectionView,
-    DTDynamicsTypeLockScreen,
     DTDynamicsTypeParallax,
     DTDynamicsTypes
 };
@@ -65,8 +65,8 @@ static NSString * const CellIdentifier = @"Cell";
         case DTDynamicsTypeCollectionView:
             name = NSLocalizedString(@"CollectionView", @"CollectionView");
             break;
-        case DTDynamicsTypeLockScreen:
-            name = NSLocalizedString(@"LockScreen", @"LockScreen");
+        case DTDynamicsTypeScrollView:
+            name = NSLocalizedString(@"ScrollView", @"ScrollView");
             break;
         case DTDynamicsTypeWrongPassword:
             name = NSLocalizedString(@"Wrong password", @"Wrong password");
@@ -92,8 +92,8 @@ static NSString * const CellIdentifier = @"Cell";
         case DTDynamicsTypeCollectionView:
             [self pushCollectionController];
             break;
-        case DTDynamicsTypeLockScreen:
-            NSLog(@"lock");
+        case DTDynamicsTypeScrollView:
+            [self pushScrollController];
             break;
         case DTDynamicsTypeWrongPassword:
             [self pushShakeController];
@@ -122,5 +122,10 @@ static NSString * const CellIdentifier = @"Cell";
     [self.navigationController pushViewController:controller animated:YES];
 }
 
+- (void)pushScrollController
+{
+    DTScrollViewController *controller = [[DTScrollViewController alloc] init];
+    [self.navigationController pushViewController:controller animated:YES];
+}
 
 @end

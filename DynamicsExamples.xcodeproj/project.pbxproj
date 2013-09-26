@@ -25,6 +25,9 @@
 		D9F97BBB17F28743009E900E /* img.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D9F97BBA17F28743009E900E /* img.jpg */; };
 		D9F97BC117F2A60F009E900E /* DTShakeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9F97BC017F2A60F009E900E /* DTShakeViewController.m */; };
 		D9F97BC517F3B30B009E900E /* DTCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9F97BC417F3B30B009E900E /* DTCollectionViewController.m */; };
+		D9F97BC917F3C45F009E900E /* DTScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9F97BC817F3C45F009E900E /* DTScrollViewController.m */; };
+		D9F97BCB17F3D74A009E900E /* camera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D9F97BCA17F3D74A009E900E /* camera@2x.png */; };
+		D9F97BCE17F3E365009E900E /* DTDynamicItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D9F97BCD17F3E365009E900E /* DTDynamicItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +68,11 @@
 		D9F97BC017F2A60F009E900E /* DTShakeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTShakeViewController.m; sourceTree = "<group>"; };
 		D9F97BC317F3B30B009E900E /* DTCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTCollectionViewController.h; sourceTree = "<group>"; };
 		D9F97BC417F3B30B009E900E /* DTCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTCollectionViewController.m; sourceTree = "<group>"; };
+		D9F97BC717F3C45F009E900E /* DTScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTScrollViewController.h; sourceTree = "<group>"; };
+		D9F97BC817F3C45F009E900E /* DTScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTScrollViewController.m; sourceTree = "<group>"; };
+		D9F97BCA17F3D74A009E900E /* camera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera@2x.png"; sourceTree = "<group>"; };
+		D9F97BCC17F3E365009E900E /* DTDynamicItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTDynamicItem.h; sourceTree = "<group>"; };
+		D9F97BCD17F3E365009E900E /* DTDynamicItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTDynamicItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,9 +147,10 @@
 				D9F97B9417F27D34009E900E /* DTAppDelegate.m */,
 				D9F97BB317F27D9A009E900E /* DTRootViewController.h */,
 				D9F97BB417F27D9A009E900E /* DTRootViewController.m */,
-				D9F97BB917F284D9009E900E /* Parallax */,
 				D9F97BC217F2A62C009E900E /* Shake */,
+				D9F97BC617F3C3F2009E900E /* ScrollView */,
 				D960E75217F37CB900AB192D /* CollectionView */,
+				D9F97BB917F284D9009E900E /* Parallax */,
 				D9F97B9617F27D34009E900E /* Images.xcassets */,
 				D9F97B8B17F27D34009E900E /* Supporting Files */,
 			);
@@ -194,6 +203,18 @@
 				D9F97BC017F2A60F009E900E /* DTShakeViewController.m */,
 			);
 			name = Shake;
+			sourceTree = "<group>";
+		};
+		D9F97BC617F3C3F2009E900E /* ScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				D9F97BC717F3C45F009E900E /* DTScrollViewController.h */,
+				D9F97BC817F3C45F009E900E /* DTScrollViewController.m */,
+				D9F97BCC17F3E365009E900E /* DTDynamicItem.h */,
+				D9F97BCD17F3E365009E900E /* DTDynamicItem.m */,
+				D9F97BCA17F3D74A009E900E /* camera@2x.png */,
+			);
+			name = ScrollView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,6 +295,7 @@
 			files = (
 				D9F97BBB17F28743009E900E /* img.jpg in Resources */,
 				D9F97B8F17F27D34009E900E /* InfoPlist.strings in Resources */,
+				D9F97BCB17F3D74A009E900E /* camera@2x.png in Resources */,
 				D9F97B9717F27D34009E900E /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -294,9 +316,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9F97B9517F27D34009E900E /* DTAppDelegate.m in Sources */,
+				D9F97BC917F3C45F009E900E /* DTScrollViewController.m in Sources */,
 				D9F97BB817F27E9B009E900E /* DTParallaxViewController.m in Sources */,
 				D9F97BB517F27D9A009E900E /* DTRootViewController.m in Sources */,
 				D9F97BC517F3B30B009E900E /* DTCollectionViewController.m in Sources */,
+				D9F97BCE17F3E365009E900E /* DTDynamicItem.m in Sources */,
 				D960E75817F38FF700AB192D /* DTSpringFlowLayout.m in Sources */,
 				D9F97BC117F2A60F009E900E /* DTShakeViewController.m in Sources */,
 				D9F97B9117F27D34009E900E /* main.m in Sources */,
