@@ -30,22 +30,21 @@
 
     [self.view addSubview:self.image];
 
-    NSNumber *relativeMin = @-50;
-    NSNumber *relativeMax = @50;
+    NSInteger range = 50;
 
     UIInterpolatingMotionEffectType horizontal = UIInterpolatingMotionEffectTypeTiltAlongHorizontalAxis;
     UIInterpolatingMotionEffect *horizontalAxix;
     horizontalAxix = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"center.x"
                                                                      type:horizontal];
-    horizontalAxix.minimumRelativeValue = relativeMin;
-    horizontalAxix.maximumRelativeValue = relativeMax;
+    horizontalAxix.minimumRelativeValue = @(range);
+    horizontalAxix.maximumRelativeValue = @(-range);
 
     UIInterpolatingMotionEffectType vertical = UIInterpolatingMotionEffectTypeTiltAlongVerticalAxis;
     UIInterpolatingMotionEffect *verticalAxix;
     verticalAxix = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"center.y"
                                                                    type:vertical];
-    verticalAxix.minimumRelativeValue = relativeMin;
-    verticalAxix.maximumRelativeValue = relativeMax;
+    verticalAxix.minimumRelativeValue = @(range);
+    verticalAxix.maximumRelativeValue = @(-range);
 
     UIMotionEffectGroup *parallax = [[UIMotionEffectGroup alloc] init];
     parallax.motionEffects = @[horizontalAxix, verticalAxix];
