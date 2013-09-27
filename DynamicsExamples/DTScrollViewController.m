@@ -47,6 +47,7 @@ typedef NS_ENUM(NSInteger, DTGravityDirection){
     scrollView.contentSize = CGSizeMake(CGRectGetWidth(frame), 2*CGRectGetHeight(frame));
     scrollView.showsVerticalScrollIndicator = NO;
     scrollView.bounces = NO;
+    scrollView.decelerationRate = UIScrollViewDecelerationRateFast;
     scrollView.delegate = self;
     self.scrollView = scrollView;
 
@@ -72,10 +73,10 @@ typedef NS_ENUM(NSInteger, DTGravityDirection){
         forControlEvents:UIControlEventTouchUpInside];
     [scrollView addSubview:cameraImg];
 
-
-    UIView *view = [[UIView alloc] initWithFrame:CGRectOffset(frame, 0, CGRectGetHeight(frame))];
-    view.backgroundColor = [UIColor blackColor];
-    [scrollView addSubview:view];
+    CGRect backgroundFrame = CGRectOffset(frame, 0, CGRectGetHeight(frame));
+    UIView *backgroudView = [[UIView alloc] initWithFrame:backgroundFrame];
+    backgroudView.backgroundColor = [UIColor blackColor];
+    [scrollView addSubview:backgroudView];
 
     self.item = [[DTDynamicItem alloc] initWithScrollView:self.scrollView];
 }
@@ -86,7 +87,7 @@ typedef NS_ENUM(NSInteger, DTGravityDirection){
 - (void)cameraTap
 {
     [self enableGravity:DTGravityDown];
-    [self addPush:50];
+    [self addSpeed:400];
 }
 
 - (void)enableGravity:(DTGravityDirection)direction
@@ -110,25 +111,23 @@ typedef NS_ENUM(NSInteger, DTGravityDirection){
     border.collisionMode = UICollisionBehaviorModeBoundaries;
     [animator addBehavior:border];
 
-    UIGravityBehavior *gravity = [[UIGravityBehavior alloc] initWithItems:@[item]];
-    gravity.gravityDirection = CGVectorMake(0, 1*gravitySignal);
-    [animator addBehavior:gravity];
-
     UIDynamicItemBehavior *bouce = [[UIDynamicItemBehavior alloc] initWithItems:@[item]];
     bouce.allowsRotation = NO;
-    bouce.elasticity = 0.5;
+    bouce.elasticity = 0.4;
     [animator addBehavior:bouce];
+
+    UIGravityBehavior *gravity = [[UIGravityBehavior alloc] initWithItems:@[item]];
+    gravity.gravityDirection = CGVectorMake(0, 2*gravitySignal);
+    [animator addBehavior:gravity];
 }
 
-- (void)addPush:(CGFloat)magnitude
+- (void)addSpeed:(CGFloat)magnitude
 {
-    UIPushBehavior *push = [[UIPushBehavior alloc] initWithItems:@[self.item]
-                                                            mode:UIPushBehaviorModeInstantaneous];
-    push.pushDirection = CGVectorMake(0, magnitude);
-    [self.animator addBehavior:push];
-
+    UIDynamicItemBehavior *speed = [[UIDynamicItemBehavior alloc] initWithItems:@[self.item]];
+    [speed addLinearVelocity:CGPointMake(0, magnitude)
+                     forItem:self.item];
+    [self.animator addBehavior:speed];
 }
-
 
 - (void)stopAnimations
 {
@@ -148,12 +147,12 @@ typedef NS_ENUM(NSInteger, DTGravityDirection){
     CGFloat height = scrollView.contentSize.height;
     CGFloat offset = targetContentOffset->y / height;
 
-    if ( offset > 0.25 ) {
+    if (offset > 0.27) {
         [self enableGravity:DTGravityUp];
     } else {
         [self enableGravity:DTGravityDown];
     }
-    [self addPush:velocity.y*50];
+    [self addSpeed:velocity.y*380];
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
