@@ -65,7 +65,7 @@
 
         UICollectionViewLayoutAttributes *item = [spring.items firstObject];
         CGPoint center = item.center;
-        center.y += scrollDelta * MIN(1, scrollResistence);
+        center.y += scrollDelta * MIN(scrollResistence, 1);
         item.center = center;
 
         [self.animator updateItemUsingCurrentState:item];

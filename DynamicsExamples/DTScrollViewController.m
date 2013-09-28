@@ -10,7 +10,7 @@
 #import "DTDynamicItem.h"
 
 
-typedef NS_ENUM(NSInteger, DTGravityDirection){
+typedef NS_ENUM(NSUInteger, DTGravityDirection){
     DTGravityUp = 0,
     DTGravityDown
 };
@@ -86,7 +86,7 @@ typedef NS_ENUM(NSInteger, DTGravityDirection){
 
 - (void)cameraTap
 {
-    [self enableGravity:DTGravityDown];
+    [self enableGravity:DTGravityUp];
     [self addSpeed:400];
 }
 
@@ -94,7 +94,7 @@ typedef NS_ENUM(NSInteger, DTGravityDirection){
 {
     CGFloat yBorder = 0;
     CGFloat gravitySignal = -1;
-    if (direction == DTGravityUp) {
+    if (direction == DTGravityDown) {
         yBorder = -CGRectGetHeight(self.view.frame);
         gravitySignal = 1;
     }
@@ -148,9 +148,9 @@ typedef NS_ENUM(NSInteger, DTGravityDirection){
     CGFloat offset = targetContentOffset->y / height;
 
     if (offset > 0.27) {
-        [self enableGravity:DTGravityUp];
-    } else {
         [self enableGravity:DTGravityDown];
+    } else {
+        [self enableGravity:DTGravityUp];
     }
     [self addSpeed:velocity.y*380];
 }
